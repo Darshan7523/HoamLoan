@@ -1,0 +1,175 @@
+
+     <body>
+
+
+      
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="dropdown-item" [routerLink]="['/app-dashboard']">Customer Details<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="dropdown-item" [routerLink]="['/app-trackdetails']">LoanDetails</a>
+        </li>
+        <li class="nav-item">
+          <a class="dropdown-item" [routerLink]="['/app-amounttrans']">Balance Transfer</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="dropdown-item" [routerLink]="['/app-emi']">EMI Calculator</a>
+
+
+        </li>
+        <li class="nav-item">
+          <a class="dropdown-item" [routerLink]="['/app-home']">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+      <h2 style="color:orange"> Home Loan EMI Calculator</h2>
+       <h3 style="color: orangered;">Calculate Home Loan EMI</h3>
+       <p style="color:white;">Home Loan EMI CalculatorWith lower EMIs, SNSD Bank Home Loans 
+       are light on your wallet. Lower interest rate and repayment tenure of up to 30 years 
+       ensure a comfortable EMI for you during the entire loan tenure. 
+       You can estimate your EMI by using our feature rich Home Loan EMI Calculator.</p>
+       
+   
+   
+       
+       
+           <div class="container">
+             <div class="row">
+               
+                
+              
+               <div class="col-sm-6">
+                 
+                 <form #frm="ngForm" (ngSubmit)="ShowResult()">
+     
+                     <div id="id1">
+                     <h2>EMI Calculator</h2>
+                     <table>
+                     <tr>
+                         
+                         <label>Loan Amount</label>
+                         <td><input type="number" name="t1" required  #loan="ngModel" [(ngModel)] ="t1" placeholder="Enter Loan Amount">
+                          <div *ngIf="!loan?.valid && (loan?.dirty || loan?.touched)" class="error">
+                              <div *ngIf="loan.errors.required">
+                                <h6 class="id2">Loan Amount is required</h6>
+                              </div>
+                              
+                            </div>
+                      </td>
+                         </tr><br>
+                     <tr>
+                     
+                         <label>Interest Rate</label>
+                         <td><input type="number" name="t2" placeholder="Enter Interest Rate" required  #inte="ngModel" [(ngModel)] ="t2">
+                          <div *ngIf="!inte?.valid && (inte?.dirty ||inte?.touched)" class="error">
+                              <div *ngIf="inte.errors.required">
+                                <h6 class="id2">Interest Rate is required</h6>
+                              </div>
+                              
+                            </div>
+                      </td>
+                     
+                     </tr>
+                     <br>
+                     <tr>
+                         <label>Loan Period(in month)</label>
+                         <td><input type="number" name="t3"  required  #period="ngModel" [(ngModel)] ="t3" placeholder="Enter Loan Period">
+                          <div *ngIf="!period?.valid && (period?.dirty || period?.touched)" class="error">
+                              <div *ngIf="period.errors.required">
+                                <h6 class="id2">Loan Period is required</h6>
+                              </div>
+                              
+                            </div>
+                      </td>
+                     </tr>
+                     <br>
+                     </table>
+                     
+                     <input id="btnemi"type="submit" value="Find EMI">
+                     <br><br>
+                     
+                     
+                         {{myresult}}
+                     
+                     
+                     
+                     </div>
+                     
+                     </form>
+     
+     
+     
+     
+               </div>
+               
+               
+               <div class="col-sm-6">
+                 
+                 <form #frm2="ngForm" (ngSubmit)="ShowResult1()">
+                     <div id="id2">
+                         <h2>Eligibility Calculator</h2>
+                         <table>
+                         <tr>
+                             <td>Monthly Income</td>
+                             <td><input type="number" required  #income="ngModel" placeholder="Enter monthly Income" name="t4" [(ngModel)] ="t4">
+                             
+                             <div *ngIf="!income?.valid && (income?.dirty || income?.touched)" class="error">
+                              <div *ngIf="income.errors.required">
+                                <h6 class="id2">Monthly income is required</h6>
+                              </div>
+                              
+                            </div>
+                          </td>
+                          </tr><br>
+                         <tr>
+                         
+                             <label>Rate Of Interest</label>
+                             <td><input type="number" value="8.5" placeholder="Enter Interest Rate" name="t5" [(ngModel)] ="t5"></td>
+                         
+                         </tr>
+                         <br>
+                         <tr>
+                             <label>Loan Period(in month)</label>
+                             <td><input type="text" required Loanperiod #Loanperiod="ngModel" placeholder="Enter Loan Period in Month" name="t6"[(ngModel)] ="t6">
+                             <div *ngIf="!Loanperiod?.valid && (Loanperiod?.dirty || Loanperiod?.touched)" class="error">
+                              <div *ngIf="Loanperiod.errors.required">
+                                <h6 class="id2">Loan Period(in month) is required</h6>
+                              </div>
+                             
+                            </div>
+                         </td>
+                          </tr>
+                         <br>
+                         </table>
+                         
+                         <input id="btnemi"type="submit" value="Find Eligibility">
+                         <br><br>
+                         
+                         
+                             {{myamount}}
+                         
+                         
+                         
+                         </div>
+                         
+                     </form>
+     
+     
+     
+               </div>
+             
+             
+             </div>
+           </div>
+           
+         </body>
+       
